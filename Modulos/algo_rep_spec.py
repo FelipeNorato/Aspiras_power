@@ -1,0 +1,47 @@
+import unittest
+from should_dsl import should, should_not
+from algo_rep import Number2, Temperature, Measure2
+
+class TestAlgoritmo(unittest.TestCase):
+
+        # Question 25
+    def test_if_number_if_prime(self):
+        Number2(5).prime() |should| equal_to (True)
+        Number2(5) |should| be_prime
+        Number2(6) |should_not| be_prime
+        Number2(9) |should_not| be_prime
+        Number2(2) |should| be_prime
+        Number2(1) |should_not| be_prime
+
+        # Question 26
+    def test_it_converts_Fahrenheit_to_Celsius(self):
+        Temperature().to_Celsius(50,52) |should| equal_to ([10.0, 10.555555555555555, 11.111111111111111])
+
+        # Question 27
+    def test_formula_invert(self):
+        Number2(5).formula() |should| equal_to (2.2833333333333332)
+        Number2(1).formula() |should| equal_to (1)
+
+        # Question 28
+    def test_factorial(self):
+        Number2(5).factorial() |should| equal_to (120)
+
+        # Question 29
+    def test_fibonacci_set(self):
+        Number2(4).fibonacci_set() |should| equal_to([1, 1, 2, 3])
+        Number2(7).fibonacci_set() |should| equal_to([1, 1, 2, 3, 5, 8, 13])
+
+        # Question 30
+    def test_pay_in_grains(self):
+        Number2(4).pay_grains() |should| equal_to(18446744073709551615L)
+
+        # Question 32
+    def test_how_old_are_the_same_height(self):
+        Measure2().same_height() |should| equal_to(40)
+
+
+
+
+if __name__ == "__main__":
+    unittest.main()
+
